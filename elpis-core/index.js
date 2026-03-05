@@ -42,11 +42,12 @@ module.exports = {
         //加载路由schema
         routerSchemaLoader(app);
         console.log(`--[start] routerSchemaLoader--`);
-        console.log(app.routerSchema);
+
 
         //加载控制器
         controllerLoader(app);
         console.log(`--[start] controllerLoader--`);
+
 
         //加载服务
         serviceLoader(app);
@@ -56,9 +57,19 @@ module.exports = {
         configLoader(app);
         console.log(`--[start] configLoader--`);
 
-        //加载扩展
+        //加载扩展  
         extendLoader(app);
         console.log(`--[start] extendLoader--`);
+
+        //注册中间件
+        try {
+            require(`${app.businessPath}${sep}middleware.js`)(app);
+            console.log(`--[start] load global middleware.js done--`);
+        } catch (error) {
+            console.error(`[exception] global middleware.js not found`);
+        }
+
+
 
         //注册路由
         routerLoader(app);
