@@ -45,5 +45,6 @@ module.exports = (app) => {
 
     //覆盖并加载config配置
     app.config = Object.assign({}, defaultConfig, envConfig);
+    console.log(`[debug] app.config: ${JSON.stringify(app.config, null, 2)}`);
 
 }

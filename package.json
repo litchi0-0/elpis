@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --quiet --ext js,vue ."
+    "lint": "eslint --quiet --ext js,vue .",
+    "dev": "set _ENV=local&&nodemon ./index.js",
+    "beta": "set _ENV=beta&&nodemon ./index.js",
+    "prod": "set _ENV=prod&&nodemon ./index.js"
   },
   "repository": {
     "type": "git",
