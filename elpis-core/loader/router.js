@@ -25,10 +25,13 @@ module.exports = (app) => {
     fileList.forEach(file => {
         require(path.resolve(file))(app, router);
     });
-    //路由兜底（健壮性）
+    //路由兜底（健壮性）— 非根路径才重定向，避免死循环
     router.get('*', async (ctx, next) => {
-        ctx.status = 302;
-        ctx.redirect(`${app?.options?.homePage ?? '/'}`);
+        const home = app?.options?.homePage || '/';
+        if (ctx.path !== '/' && ctx.path !== home) {
+            ctx.status = 302;
+            ctx.redirect(home);
+        }
     });
     //路由注册到app上
     app.use(router.routes());
