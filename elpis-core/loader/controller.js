@@ -50,6 +50,7 @@ module.exports = (app) => {
         }
 
     });
+    console.log(controller)
     app.controller = controller;
 
 }

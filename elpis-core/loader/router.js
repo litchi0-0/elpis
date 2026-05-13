@@ -17,7 +17,7 @@ const { sep } = path;
 
 module.exports = (app) => {
     //找到路由文件路径
-    const routerPath = path.resolve(app.businessPath, `.${sep}router-schema`);
+    const routerPath = path.resolve(app.businessPath, `.${sep}router`);
     //实例化KOaRouter
     const router = new KoaRouter();
     //注册所有路由
