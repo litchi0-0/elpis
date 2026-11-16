@@ -27,6 +27,7 @@ try{
 }
 const handleClick=() =>{
     axios.get('/api/project/list').then(res => console.log(res))
+
 }
 </script>
 
