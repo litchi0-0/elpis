@@ -77,7 +77,7 @@ module.exports = {
 
         //启动服务
         try {
-            const port = process.env.PORT || 8080;
+            const port = process.env.PORT || 11211;
             const host = process.env.IP || '0.0.0.0';
             app.listen(port, host);
             // 使用反引号 `
